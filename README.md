@@ -3,11 +3,15 @@ This repository provides examples, tools, and utilities for integrating Mabl and
 
 # Installation
 
-## On your mabl workspace
+## In your mabl workspace
 
-### Create and API key
+### Create an API key
 
 TODO
+
+### Get your workspace ID
+
+Go to **Settings > Workspace** in the mabl app to get your workspace ID. Alternatively, run `mabl workspaces list` in the mabl CLI.
 
 ### Create a Database configuration
 

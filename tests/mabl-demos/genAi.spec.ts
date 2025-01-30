@@ -1,4 +1,4 @@
-import {expect, test} from './utils/fixtures';
+import { expect, test } from "../fixtures";
 
 test('Evaluate a GenAI assertion to validate the state of a page', async ({
   page,

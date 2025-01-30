@@ -1,5 +1,5 @@
-import {SandboxPage} from './utils/SandboxPage';
-import {expect, test} from './utils/fixtures';
+import {SandboxPage} from './pom/SandboxPage';
+import {expect, test} from '../fixtures';
 
 test('Validate PDFs downloaded from the mabl sandbox app can be tested against', async ({
   browser,

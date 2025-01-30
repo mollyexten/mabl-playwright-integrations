@@ -1,5 +1,5 @@
-import {SandboxPage} from './utils/SandboxPage';
-import {expect, test} from './utils/fixtures';
+import {SandboxPage} from './pom/SandboxPage';
+import { expect, test } from "../fixtures";
 
 test('Validate emails can be received using mabl sandbox app', async ({
   page,

@@ -1,4 +1,4 @@
-import {expect, test} from './utils/fixtures';
+import { expect, test } from "../fixtures";
 
 const MABL_DATABASE_CONNECTION = process.env.MABL_DATABASE_ID!;
 

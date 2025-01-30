@@ -1,5 +1,5 @@
-import {expect, test} from './utils/fixtures';
-import {SandboxPage} from './utils/SandboxPage';
+import {expect, test} from '../fixtures';
+import {SandboxPage} from './pom/SandboxPage';
 
 const MFA_CREDENTIALS_ID = process.env.MABL_CREDENTIALS_ID!;
 

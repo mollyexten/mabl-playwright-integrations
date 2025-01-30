@@ -1,27 +1,16 @@
 # mabl-playwright-integrations
 This repository provides examples, tools, and utilities for integrating Mabl and Playwright.
 
-# Installation
+## Project setup
+To install the `@mablhq/playwright-tools` package, you will need:
+- [Playwright 1.43.1 or greater](https://playwright.dev/docs/intro#system-requirements)
+- [Your mabl workspace ID](https://help.mabl.com/hc/articles/17782745983636)
+- A [mabl API key](https://help.mabl.com/hc/articles/17776006239764) of type "Command Line Interface"
+- [Credential ID](https://help.mabl.com/hc/articles/17782745983636) - create [mabl credentials](https://help.mabl.com/hc/articles/24758878555412) and get the ID
+- [Database ID](https://help.mabl.com/hc/articles/17782745983636) - create a [database connection](https://help.mabl.com/hc/articles/27563281835284) and get the ID
 
-## In your mabl workspace
 
-### Create an API key
-
-TODO
-
-### Get your workspace ID
-
-Go to **Settings > Workspace** in the mabl app to get your workspace ID. Alternatively, run `mabl workspaces list` in the mabl CLI.
-
-### Create a Database configuration
-
-TODO
-
-Note: This demo project assumes that the database has a `pets` table.
-
-### Create credentials
-
-TODO
+> Note: This example project assumes that the database has a `pets` table.
 
 ## Create .env file
 
@@ -33,3 +22,19 @@ MABL_WORKSPACE_ID=your_workspace_id
 DATABASE_ID=your_database_id
 MABL_CREDENTIALS_ID=your_credentials_id
 ```
+## Usage
+### Email testing
+Create a temporary email address, send a test email, and verify that the email is received with the correct details
+
+### GenAI testing
+Evaluate the state of the page `https://www.mabl.com` with a [GenAI Assertion](https://help.mabl.com/hc/articles/28810650854292)
+
+### Database testing
+Run a database query step to retrieve 15 rows from a "pets" table column using a connection from your mabl workspace
+
+### PDF testing
+Download and validate the contents of a PDF from the mabl sandbox
+
+### Multi-factor Authentication and credentials testing
+TODO
+

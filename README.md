@@ -25,58 +25,27 @@ MABL_CREDENTIALS_ID=your_credentials_id
 ## Usage
 ### Email testing
 Create a temporary email address, send a test email, and open it to verify that the email is received with the correct details:
-```typescript
-  const emailAddress = await mabl.createMailBoxAddress();
-  console.log(`Email address: ${emailAddress}`);
-  const subject = 'Test email';
-  const body = 'This is a test email';
-  await mailboxPage.fillOutAndSendEmail(emailAddress, subject, body);
-  const mablEmail = await mabl.waitForEmail(emailAddress, page, {subject});
-  await mablEmail.open();
-```
-[snippet source](https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/email.spec.ts#L12C3-L18C26)
+
+https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/email.spec.ts#L8-L22
 
 ### GenAI testing
 Evaluate the state of the page `https://www.mabl.com` with a [GenAI Assertion](https://help.mabl.com/hc/articles/28810650854292):
-```typescript
-  await page.goto('https://www.mabl.com');
-  const prompt =
-    'Please validate that the web page you are looking at is a marketing page for a company named mabl which does automated UI testing';
-  const result = await mabl.evaluateGenAiAssertion(page, prompt);
-```
-[snippet source](https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/genAi.spec.ts#L7C3-L11C66)
+
+https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/genAi.spec.ts#L7-L14
+
 
 ### Database testing
 Run a database query step to retrieve 15 rows from a "pets" table column using a connection from your mabl workspace:
-```typescript
-  const dbQuery = 'SELECT * from pets LIMIT 15';
-  const result = await mabl.executeQuery(MABL_DATABASE_CONNECTION, dbQuery, []);
-  expect(result.metadata?.status).toBe('success');
-  expect(result.columns?.length).toEqual(5);
-  expect(result.rows?.length).toEqual(15);
-```
-[snippet source](https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/database.spec.ts#L8C3-L12C43)
+
+https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/database.spec.ts#L8-L12
 
 ### PDF testing
 Download and validate the contents of a PDF from the mabl sandbox
-```typescript
-// use the mabl tools to open the file in a new Page
-  const pageForPdf = await browser.newPage();
 
-  await mabl.openPdfFile(pdfPath, pageForPdf);
-
-  const element = pageForPdf.locator('text=Journey run export');
-  expect(await element.isVisible()).toBeTruthy();
-```
-[snippet source](https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/pdf.spec.ts#L25C3-L31C50)
+https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/pdf.spec.ts#L15-L31
 
 ### MFA testing
 Log in with mabl MFA credentials
-```typescript
-  const loginPage = await sandbox.goToLoginPage();
-  const creds = await mabl.getCredentials(MFA_CREDENTIALS_ID);
-  // NOTE: the login function validates the login was successful
-  await loginPage.fillOutAndSubmitLoginForm(creds.username, creds.password);
-```
-[snippet source](https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/credentials.spec.ts#L23C3-L26C77)
+
+https://github.com/mablhq/mabl-playwright-integrations/blob/10ad92514d993016a479f39b9e2063c3dc39eaf9/tests/mabl-demos/credentials.spec.ts#L11-L13
 
